@@ -2,7 +2,7 @@ from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
 from telegram import ParseMode, error
 import os, sys, requests, logging
 
-class MiraTelegramBot:
+class BotoBotTelegramClient:
     ERROR_MESSAGE = 'Sorry, an error occurred while processing your request. Please, try again later.'
     ERROR_TELEGRAM_UNAUTHORIZED = 'Authorization error! Check the "TELEGRAM_TOKEN" variable.'
 
@@ -11,7 +11,7 @@ class MiraTelegramBot:
         self.req_headers = { 'Content-Type': 'application/json', 'Authorization': 'JWT {}'.format(self.config['TELEGRAM_TOKEN']) }
 
     def load_config(self):
-        self.config = { 'ERROR_MESSAGE' : self.ERROR_MESSAGE }
+        self.config = {}
         for p in ['TELEGRAM_TOKEN', 'BOTOBOT_WEBHOOK']:
             self.config[p] = os.environ.get(p)
             if self.config[p] is None:
@@ -28,8 +28,7 @@ class MiraTelegramBot:
             for message in response['messages']:
                 context.bot.send_message(chat_id=update.effective_chat.id, text=message, parse_mode=self.get_parse_mode(response))
         except:
-            if self.config.get('ERROR_MESSAGE'):
-                context.bot.send_message(chat_id=update.effective_chat.id, text=self.config.get('ERROR_MESSAGE'), parse_mode=self.get_parse_mode(response))
+            context.bot.send_message(chat_id=update.effective_chat.id, text=ERROR_MESSAGE)
             raise
 
     def on_message(self, update, context):
@@ -45,8 +44,7 @@ class MiraTelegramBot:
                 logging.debug(f'message={message}')
                 context.bot.send_message(chat_id=update.effective_chat.id, text=message[:4095], disable_web_page_preview=True)
         except:
-            if self.config.get('ERROR_MESSAGE'):
-                context.bot.send_message(chat_id=update.effective_chat.id, text=self.config.get('ERROR_MESSAGE'))
+            context.bot.send_message(chat_id=update.effective_chat.id, text=ERROR_MESSAGE)
             raise
 
     def main(self):
@@ -62,10 +60,8 @@ class MiraTelegramBot:
             raise
 
 if __name__ == '__main__':
-    # Configura o log.
     logging.basicConfig(filename='telegram_cli.log', encoding='utf-8', level=logging.DEBUG, format='[%(asctime)s %(name)s] %(levelname)s: %(message)s')
     logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
-
-    # Executa o cliente.
     logging.info("Starting telegram client...")
-    MiraTelegramBot().main()
+
+    BotoBotTelegramClient().main()
