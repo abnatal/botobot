@@ -6,7 +6,7 @@ The core module of BotoBot. It's a Flask RESTful application that provides:
 
 This projects contains three sample services (Stock Prices, Weather and Static Texts).
 
-New services must be implemented in this project as a new API resource.
+New services must be implemented here, as new API resources.
 
 ## Project structure
 ```
@@ -50,7 +50,7 @@ flask run
 To run it as a docker container, use the __Dockerfile__ provided.
 
 ## Add new services to the bot
-- Create and new resource in the __blueprints\restapi__ directory;
+- Implement the new resource in the __blueprints\restapi__ directory;
 - Add the corresponding record to __Api__ table (take a look in other records as an example);
 - Edit the __RESTAPI_RESOURCES__ section in __settings.toml__ (include you new class).
 
