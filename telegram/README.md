@@ -26,8 +26,8 @@ It was tested with Python 3.10.
 ### Configuration
 Edit the __settings.toml__ and provide the following parameters:
 ```
-TELEGRAM_TOKEN=9999999999:ABCDEFGHIJKLMNOPQRSTUVWXYZ
-BOTOBOT_API_WEBHOOK=http://127.0.0.1:5000/
+TELEGRAM_TOKEN = '9999999999:ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+BOTOBOT_API_WEBHOOK = 'http://127.0.0.1:5000/'
 ```
 The __TELEGRAM_TOKEN__ parameter is the access token of your telegram bot.
 
