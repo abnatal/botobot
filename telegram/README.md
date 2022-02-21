@@ -1,7 +1,7 @@
 # 🐬 BotoBot Telegram Client
 Interface between the BotoBot API and the Telegram API.
 
-You can see the live demo at https://t.me/BotoBotDemo_bot
+Check the live demo at https://t.me/BotoBotDemo_bot
 
 ## Prerequisites
 You need to register a new bot at https://t.me/BotFather

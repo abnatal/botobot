@@ -6,7 +6,7 @@ It's composed by three python applications:
 - Telegram Client
 - WhatsApp Client
 
-You can see the live demo at https://t.me/BotoBotDemo_bot
+Check the live demo at https://t.me/BotoBotDemo_bot
 
 ## Prerequisites
 ### For Telegram
