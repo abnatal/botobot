@@ -1,5 +1,5 @@
 # 🐬 BotoBot Telegram Client
-This is a application to interface the BotoBot API with the Telegram API.
+Interface between the BotoBot API and the Telegram API.
 
 You can see the live demo at https://t.me/BotoBotDemo_bot
 
@@ -24,7 +24,7 @@ It was tested with Python 3.10.
 
 ## How to run
 ### Configuration
-Edit the '''settings.toml''' and provide the following parameters:
+Edit the __settings.toml__ and provide the following parameters:
 ```
 TELEGRAM_TOKEN=9999999999:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 BOTOBOT_API_WEBHOOK=http://127.0.0.1:5000/
