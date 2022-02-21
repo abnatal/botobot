@@ -13,7 +13,7 @@ New services must be implemented here, as new API resources.
 Project
 ├── botobot_api
 │   ├── blueprints: REST API resources
-|   ├── ext: Extensions (configuration, database, commands and resources)
+|   ├── ext: Extensions (configuration, database, commands)
 |   ├── tests: Pytest tests
 |   ├── app.py: Flask application
 |   ├── requirements.txt: Modules dependecies.
@@ -35,7 +35,7 @@ This application can run out of the box for debugging purposes. However, it's st
 If you want to use a DBMS other than SQLite, please provide the connection string in the __SQLALCHEMY_DATABASE_URI__ parameter.
 
 ### Run
-It's necessary to create the database before the first execution.
+It's mandatory to create the database before the first execution.
 
 In the application directory, run:
 ```
@@ -49,7 +49,7 @@ flask run
 ### Docker Container
 To run it as a docker container, use the __Dockerfile__ provided.
 
-## Add new services to the bot
+## Adding new services to the bot
 - Implement the new resource in the __blueprints\restapi__ directory;
 - Add the corresponding record to __Api__ table (take a look in other records as an example);
 - Edit the __RESTAPI_RESOURCES__ section in __settings.toml__ (include you new class).
