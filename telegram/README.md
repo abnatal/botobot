@@ -6,7 +6,7 @@ You can see the live demo at https://t.me/BotoBotDemo_bot
 ## Prerequisites
 You need to register a new bot at https://t.me/BotFather
 
-Check the documentation at https://core.telegram.org/bots#6-botfather or watch a <a href='https://www.youtube.com/results?search_query=botfather' target='_blank'>tutorial video on youtube</a>.
+Check the documentation at https://core.telegram.org/bots#6-botfather or watch a <a href='https://www.youtube.com/results?search_query=botfather'>tutorial video on youtube</a>.
 
 ## Project structure
 ```
@@ -45,4 +45,4 @@ python telegram_cli\telegram_cli.py
 Application running, you can talk to your bot.
 
 ### Docker Container
-To run as a docker container, use the __Dockerfile__ provided.
+To run it as a docker container, use the __Dockerfile__ provided.
