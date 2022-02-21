@@ -15,7 +15,7 @@ You have to register a new bot at https://t.me/BotFather
 Check the documentation at https://core.telegram.org/bots#6-botfather or watch a <a href='https://www.youtube.com/results?search_query=botfather' target='_blank'>tutorial video on youtube</a>.
 
 ### For WhatsApp
-You need to setup an account with a Facebook Business Solution Providers (BSP) for Whatsapp. Currently, this project supports <a href='https://gupshup.io' target='_blank'>Gupshup</a> and <a href='https://www.positus.com.br'>Positus</a>.
+You need to setup an account with a Facebook Business Solution Provider (BSP) for Whatsapp. Currently, this project supports <a href='https://gupshup.io' target='_blank'>Gupshup</a> and <a href='https://www.positus.com.br'>Positus</a>.
 
 ## Project structure
 <img src="https://abnatal.com/github/botobot_diagram.jpg"></img>
@@ -48,4 +48,4 @@ The WhatsApp Client  (./whatsapp) and Telegram Client (./telegram) depend on the
 - [ ] Admin Interface
 
 ## Why "boto"?
-Boto is the amazon river dolphin (Inia geoffrensis). One of their strongest skills is communication.
+Boto is the <a href='https://marinemammalscience.org/facts/inia-geoffrensis'>amazon river dolphin</a>. One of their strongest skills is communication.
