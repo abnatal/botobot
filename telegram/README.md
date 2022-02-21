@@ -1,0 +1,49 @@
+# 🐬 BotoBot Telegram Client
+This is a application to interface the BotoBot API with the Telegram API.
+
+You can see the live demo at https://t.me/BotoBotDemo_bot
+
+## Prerequisites
+You need to register a new bot at https://t.me/BotFather
+
+Check the documentation at https://core.telegram.org/bots#6-botfather or watch a <a href='https://www.youtube.com/results?search_query=botfather' target='_blank'>tutorial video on youtube</a>.
+
+## Project structure
+```
+Project
+├── telegram_cli
+│   ├── telegram_cli.py: Python application.
+|   ├── settings.toml: Configuration file
+|   ├── requirements.txt: Modules dependecies.
+```
+
+## Dependencies
+This project project depends on [BotoBot API](https://github.com/abnatal/botobot/tree/main/api).
+
+It was tested with Python 3.10.
+
+## How to run
+### Configuration
+Edit the '''settings.toml''' and provide the following parameters:
+```
+[default]
+TELEGRAM_TOKEN=9999999999:ABCDEFGHIJKLMNOPQRSTUVWXYZ
+BOTOBOT_API_WEBHOOK=http://127.0.0.1:5000/
+```
+The __TELEGRAM_TOKEN__ parameter is the access token of your telegram bot.
+
+The __BOTOBOT_API_WEBHOOK__ is the URL of the BotoBot API. Default address is http://127.0.0.1:5000/
+
+### Install python dependencies
+```
+python -m pip install -r requirements.txt
+```
+
+### Run
+```
+python telegram_cli\telegram_cli.py
+```
+Application running, you can talk to your bot.
+
+### Docker Container
+To run as a docker container, use the __Dockerfile__ provided.
