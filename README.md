@@ -9,7 +9,7 @@ It's composed by three python applications:
 You can see the live demo at https://t.me/BotoBotDemo_bot
 
 ## Prerequisites
-### For telegram
+### For Telegram
 You have to register a new bot at https://t.me/BotFather
 
 Check the documentation at https://core.telegram.org/bots#6-botfather or watch a <a href='https://www.youtube.com/results?search_query=botfather' target='_blank'>tutorial video on youtube</a>.
@@ -46,3 +46,6 @@ The WhatsApp Client  (./whatsapp) and Telegram Client (./telegram) depend on the
 ## Future tasks
 
 - [ ] Admin Interface
+
+## Why "boto"?
+Boto is the amazon river dolphin (Inia geoffrensis). One of their strongest skills is communication.
