@@ -26,7 +26,6 @@ It was tested with Python 3.10.
 ### Configuration
 Edit the '''settings.toml''' and provide the following parameters:
 ```
-[default]
 TELEGRAM_TOKEN=9999999999:ABCDEFGHIJKLMNOPQRSTUVWXYZ
 BOTOBOT_API_WEBHOOK=http://127.0.0.1:5000/
 ```
