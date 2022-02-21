@@ -1,6 +1,6 @@
 [default]
 DEBUG = false
-TITLE = "Fulano Chatbot"
+TITLE = "Botobot Chatbot"
 SECRET_KEY = "somerandomkey"
 SQLALCHEMY_DATABASE_URI = 'sqlite:///botobot.db'
 SQLALCHEMY_TRACK_MODIFICATIONS  = 0
