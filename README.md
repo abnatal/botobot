@@ -6,8 +6,6 @@ It's composed by three python applications:
 - Telegram Client
 - WhatsApp Client
 
-This project is still in progress. 
-
 You can see the live demo at https://t.me/BotoBotDemo_bot
 
 ## Prerequisites
@@ -21,6 +19,19 @@ You need to setup an account with a Facebook Business Solution Providers (BSP) f
 
 ## Project structure
 <img src="https://abnatal.com/github/botobot_diagram.jpg"></img>
+```
+Project
+├── api
+|   ├── botobot_api: Flask application to handle the user input and execute services APIs.
+|
+├── telegram
+│   ├── telegram_cli: Python application to interface with Telegram API.
+|
+├── whatsapp
+│   ├── whatsapp_cli: Flask application to interface with the Facebook BSP.
+|
+├── requirements.txt: List of modules dependecies.
+```
 
 ## How to build and run
 Check the README.md files inside each project folder (api, telegram, whatsapp) for instructions.
