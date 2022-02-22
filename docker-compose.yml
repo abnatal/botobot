@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
     botobot_api:
-        image: botobot_api:lastest
+        image: botobot_api
         container_name: botobot_api
         ports:
             - "5000:5000"
@@ -12,7 +12,7 @@ services:
             - botobot-net
 
     botobot_telegram:
-        image: botobot_telegram:lastest
+        image: botobot_telegram
         container_name: botobot_telegram
         hostname: botobot_telegram
         restart: always
@@ -20,7 +20,7 @@ services:
             - botobot-net
 
     botobot_whatapp:
-        image: botobot_whatapp:lastest
+        image: botobot_whatapp
         container_name: botobot_whatapp
         ports:
             - "8500:8500"

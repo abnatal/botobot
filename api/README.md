@@ -46,8 +46,8 @@ To run the application:
 flask run
 ```
 
-### Docker Container
-To run it as a docker container, use the __Dockerfile__ provided.
+### Docker
+To run it as a docker container, check the [README.md](https://github.com/abnatal/botobot/tree/main/README.md) file in the parent directory.
 
 ## Adding new services to the bot
 - Implement the new resource in the __blueprints\restapi__ directory;

@@ -33,10 +33,28 @@ Project
 ├── requirements.txt: List of modules dependecies.
 ```
 
-## How to build and run
-Check the README.md files inside each project folder (api, telegram, whatsapp) for instructions.
+## How to Build and Run
+### Docker
+Use the __docker-compose.yml__ provided.
+```
+# In the application directory, build the images:
+cd api
+docker build -t botobot_api .
 
-The WhatsApp Client  (./whatsapp) and Telegram Client (./telegram) depend on the API project (./api).
+cd ../telegram
+docker build -t botobot_telegram .
+
+cd ../whatsapp
+docker build -t botobot_whatsapp .
+
+# Run with docker-compose:
+docker-compose up -d
+```
+
+### Running as standalone apps
+Please check the README.md files inside each project folder (api, telegram, whatsapp) for instructions.
+
+The WhatsApp and Telegram clients depend on the API project.
 
 ## Technologies used
 - Python
