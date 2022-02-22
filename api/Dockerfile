@@ -7,7 +7,6 @@ RUN apt-get install --yes apache2 apache2-dev locales
 
 # Copy the app.
 WORKDIR /app
-RUN chown www-data:www-data /app
 COPY --chown=www-data:www-data ./ /app/
 
 # Install Python packages.
@@ -19,4 +18,5 @@ RUN flask create-db
 
 # Run.
 EXPOSE 5000
+RUN chown -R www-data:www-data /app
 CMD [ "mod_wsgi-express", "start-server", "/app/botobot_api/wsgi.py", "--user", "www-data", "--group", "www-data", "--host", "0.0.0.0", "--port", "5000", "--log-to-terminal" ]

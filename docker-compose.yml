@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+    botobot_api:
+        image: botobot_api:lastest
+        container_name: botobot_api
+        ports:
+            - "5000:5000"
+        hostname: botobot_api
+        restart: always
+        networks:
+            - botobot-net
+
+    botobot_telegram:
+        image: botobot_telegram:lastest
+        container_name: botobot_telegram
+        hostname: botobot_telegram
+        restart: always
+        networks:
+            - botobot-net
+
+    botobot_whatapp:
+        image: botobot_whatapp:lastest
+        container_name: botobot_whatapp
+        ports:
+            - "8500:8500"
+        hostname: botobot_whatapp
+        restart: always
+        networks:
+            - botobot-net
+
+networks:
+  botobot-net:
+    driver: bridge
