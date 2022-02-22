@@ -31,7 +31,7 @@ BOTOBOT_API_WEBHOOK = 'http://botobot_api:5000/'
 ```
 The __TELEGRAM_TOKEN__ parameter is the access token of your telegram bot.
 
-The __BOTOBOT_API_WEBHOOK__ is the URL of the BotoBot API. Please notice that it points to the __botobot_api__ host, which is the default configuration for our docker-compose setup. If you want to run it as a standalone app, change this address (usually "http://127.0.0.1:5000/" for development environments).
+The __BOTOBOT_API_WEBHOOK__ is the URL of the BotoBot API. Please note that it points to the __botobot_api__ host, which is the default configuration for our docker-compose setup. If you want to run it as a standalone app, change this address (usually http://127.0.0.1:5000/ for development environments).
 
 ### Install python dependencies
 ```
