@@ -22,7 +22,7 @@ You need to setup an account with a Facebook Business Solution Provider (BSP) fo
 ```
 Project
 ├── api
-|   ├── botobot_api: Flask application to handle the user input and execute services APIs.
+|   ├── botobot_api: Flask application to handle the user input and call services APIs.
 |
 ├── telegram
 │   ├── telegram_cli: Python application to interface with Telegram API.
