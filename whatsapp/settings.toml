@@ -1,0 +1,33 @@
+[default]
+DEBUG = false
+TITLE = "Botobot Chatbot WhatsApp Client"
+SECRET_KEY = "some_random_key"
+WEBHOOK_TOKEN = 'please_change_this_to_a_random_string'
+
+# GupShup configuration
+GUPSHUP_ENDPOINT_URL = 'https://api.gupshup.io/sm/api/v1/msg'
+GUPSHUP_WHATSAPP_PHONE = '999999999999'
+GUPSHUP_APPNAME = 'your_appname_at_gupshup'
+GUPSHUP_API_KEY = 'your_key_at_gupshup'
+
+# Botobot API configuration
+BOTOBOT_API_WEBHOOK = 'http://botobot_api:5000/'
+
+# Database
+SQLALCHEMY_DATABASE_URI = 'sqlite:///botobot_whatsapp.db'
+SQLALCHEMY_TRACK_MODIFICATIONS  = 0
+
+# Uncomment the line below if you are using MySQL:
+# SQLALCHEMY_ENGINE_OPTIONS.isolation_level = 'READ COMMITTED' 
+
+EXTENSIONS = [
+    "botobot_whatsapp.ext.database:init_app",
+    "botobot_whatsapp.ext.commands:init_app"
+]
+
+RESTAPI_RESOURCES = [
+    "botobot_whatsapp.blueprints.restapi.gupshup.WhatsappGupShupWebhook:/gupshuphook",
+]
+
+[development]
+DEBUG = true
