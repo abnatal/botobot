@@ -11,7 +11,7 @@ Check the documentation at https://core.telegram.org/bots#6-botfather or watch a
 ## Project structure
 ```
 Project
-├── telegram_cli
+├── botobot_telegram
 │   ├── telegram_cli.py: Python application.
 |   ├── settings.toml: Configuration file
 |   ├── requirements.txt: Modules dependecies.
@@ -40,7 +40,7 @@ python -m pip install -r requirements.txt
 
 ### Run
 ```
-python telegram_cli\telegram_cli.py
+python botobot_telegram\telegram_cli.py
 ```
 Application running, you can talk to your bot.
 

@@ -25,10 +25,10 @@ Project
 |   ├── botobot_api: Flask application to handle the user input and call services APIs.
 |
 ├── telegram
-│   ├── telegram_cli: Python application to interface with Telegram API.
+│   ├── botobot_telegram: Python application to interface with Telegram API.
 |
 ├── whatsapp
-│   ├── whatsapp_cli: Flask application to interface with the Facebook BSP.
+│   ├── botobot_whatsapp: Flask application to interface with the Facebook BSP.
 |
 ├── requirements.txt: List of modules dependecies.
 ```

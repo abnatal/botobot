@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 
 RUN useradd -m botobot
 
-COPY ./telegram_cli/telegram_cli.py .
+COPY ./botobot_telegram/telegram_cli.py .
 COPY requirements.txt .
 COPY settings.toml .
 RUN chown -R botobot .
