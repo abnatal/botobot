@@ -19,12 +19,12 @@ services:
         networks:
             - botobot-net
 
-    botobot_whatapp:
-        image: botobot_whatapp
-        container_name: botobot_whatapp
+    botobot_whatsapp:
+        image: botobot_whatsapp
+        container_name: botobot_whatsapp
         ports:
             - "8500:8500"
-        hostname: botobot_whatapp
+        hostname: botobot_whatsapp
         restart: always
         networks:
             - botobot-net
