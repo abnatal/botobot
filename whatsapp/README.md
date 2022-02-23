@@ -10,7 +10,7 @@ You need to setup an account with a Facebook Business Solution Provider (BSP) fo
 ```
 Project
 ├── botobot_whatsapp
-│   ├── blueprints: REST API resources (Webhooks)
+│   ├── blueprints: REST API resources (webhooks)
 |   ├── ext: Extensions (configuration, database, commands)
 |   ├── tests: Pytest tests
 |   ├── app.py: Flask application
@@ -43,7 +43,7 @@ GUPSHUP_WHATSAPP_PHONE = '999999999999'
 GUPSHUP_APPNAME = 'your_appname_at_gupshup'
 GUPSHUP_API_KEY = 'your_key_at_gupshup'
 ```
-The __GUPSHUP_WHATSAPP_PHONE__ is your company phone configured at Gupshup. If your app isn't in production, GupShup provides o proxy phone number.
+The __GUPSHUP_WHATSAPP_PHONE__ is your company phone configured at Gupshup. If your app isn't in production, GupShup provides you a proxy phone number.
 
 The __GUPSHUP_APPNAME__ is your app name at Gupshup.
 
