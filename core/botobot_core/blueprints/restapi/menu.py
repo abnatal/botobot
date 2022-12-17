@@ -26,27 +26,30 @@ class MenuResource(Resource):
 
         # A /start command (telegram) was received or previous context does not exist.
         if self.args.get('cmd') == 'start' or (not self.context):
-            self.context = self.create_context(self.args['chat_id'], self.args['client'], self.args['version'])
+            self.context = self.create_context(chat_id=self.args['chat_id'],
+                                               client=self.args['client'],
+                                               version=self.args['version'])
             return self.handle_start()
 
         # Context exists. Check the message.
         if self.args.get('message'):
             if not self.context.current_api:
-                return self.handle_message(self.args.get('message'))
+                return self.handle_message(message=self.args.get('message'))
             else:
                 return self.forward_message(api=self.context.current_api, message=self.args.get('message'))
 
-        # Wrong request.
         abort(404)
 
     def handle_start(self):
-        """ The very first message when a chat starts. """
+        """ The bot presents itself and the available options (menu)
+            at the very first message when a chat starts.
+        """
         hello = Message.get('general.hello')
         options = ['*%d.* %s' % (i + 1, api.label) for i, api in enumerate(Api.get_all_visible())]
         return jsonify({ 'messages' : [hello.fulltext, "\n".join(options)] })
 
     def handle_message(self, message):
-        """ Chat has already started. Handles the user input. """
+        """ Chat has already started. Handles the arriving message. """
         try:
             option = int(message.strip())
         except ValueError:
@@ -66,8 +69,7 @@ class MenuResource(Resource):
         return self.forward_message(self.context.current_api, message=None)
 
     def forward_message(self, api, message):
-        """ Forwards the message received to the current API.
-        """
+        """ Forwards the message received to the current API. """
         req = requests.Session().post(api.url, json = self.make_json_body(message), headers = self.make_headers())
 
         # Check for errors.
@@ -97,7 +99,8 @@ class MenuResource(Resource):
         ContextManager.save_context(self.context)
 
     def make_headers(self):
-        return { 'Content-Type': 'application/json' } #, 'Authorization': f'JWT {self.auth_token}' }
+        """ TODO: include 'Authorization: JWT (...)'. """
+        return { 'Content-Type': 'application/json' }
 
     def make_json_body(self, message):
         return {'message' : message, 'chat_id' : self.args.get('chat_id'), 'client' : self.args.get('client'), 'version' : self.args.get('version')}
