@@ -9,9 +9,9 @@ class WeatherResource(Resource):
 
     @token_required
     def post(self):
-        stc = SevenTimerClient()
+        """ Response is an intro message plus wheater info about two random cities. """
 
-        # There is an intro message and one message for each city.
+        stc = SevenTimerClient()
         messages = [Message.get('weather.intro').fulltext]
         for city in [stc.pick_random_city(), stc.pick_random_city()]:
             city['weather_info'] = stc.get_formatted_weather_info(city=city, days=2)

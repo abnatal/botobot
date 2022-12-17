@@ -4,7 +4,7 @@ from botobot_core.decorators import token_required
 from botobot_core.models import Message
 
 class StaticTextResource(Resource):
-    """ Provides static text previously stored on database """
+    """ Provides static texts previously stored on database """
 
     @token_required
     def post(self, topic):

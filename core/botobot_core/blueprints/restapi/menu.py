@@ -5,7 +5,9 @@ from botobot_core.decorators import token_required
 from botobot_core.models import ChatContext, Message, Api
 
 class MenuResource(Resource):
-    """ The main menu resource. Gets user input and relays it to other APIs. """
+    """ The main menu resource.
+        It gets user input and relays it to other APIs.
+    """
     def __init__(self):
         self.parser = reqparse.RequestParser()
         self.parser.add_argument('client', type=str, required=True, help="Invalid request.")
@@ -44,7 +46,7 @@ class MenuResource(Resource):
         return jsonify({ 'messages' : [hello.fulltext, "\n".join(options)] })
 
     def handle_message(self, message):
-        """ Chat already started. Handles the user input. """
+        """ Chat has already started. Handles the user input. """
         try:
             option = int(message.strip())
         except ValueError:
