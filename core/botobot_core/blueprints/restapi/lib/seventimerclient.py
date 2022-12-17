@@ -3,7 +3,10 @@ import random, requests
 from botobot_core.models import Message
 
 class SevenTimerClient():
-    """ DEMO: client for the 7timer.info API. """
+    """ Client for the 7timer.info API.
+        Disclaimer: this is just a demo of how to write an API for \
+                    a service used by the core module.
+    """
 
     def __init__(self):
         self.service_url = 'https://www.7timer.info/bin/api.pl'
