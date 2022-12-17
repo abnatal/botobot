@@ -1,7 +1,7 @@
 from flask import jsonify
 from flask_restful import Resource
-from botobot_api.decorators import token_required
-from botobot_api.models import Message
+from botobot_core.decorators import token_required
+from botobot_core.models import Message
 
 class StaticTextResource(Resource):
     """ Provides static text previously stored on database """

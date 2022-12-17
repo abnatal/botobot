@@ -1,5 +1,5 @@
-from botobot_api.ext.database import db
-from botobot_api.models import Message, Api
+from botobot_core.ext.database import db
+from botobot_core.models import Message, Api
 
 def create_db():
     """ Creates the database and required records. """

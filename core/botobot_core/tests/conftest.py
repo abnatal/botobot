@@ -1,7 +1,7 @@
 import pytest
 
-from botobot_api.app import create_app
-from botobot_api.ext.commands import create_db, drop_db
+from botobot_core.app import create_app
+from botobot_core.ext.commands import create_db, drop_db
 
 @pytest.fixture(scope="session")
 def app():

@@ -1,12 +1,10 @@
 from flask import Flask
-from botobot_api.ext import configuration
-from botobot_api.ext import resources
+from botobot_core.ext import configuration
+from botobot_core.ext import resources
 
-# Setup the app.
 def create_app():
+    """ Setups the app and add the resources. """
     app = Flask(__name__)
     configuration.init_app(app)
-
-    # Add resources.
     resources.init_app(app)
     return app

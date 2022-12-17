@@ -1,5 +1,5 @@
 import yfinance as yf
-from botobot_api.models import Message
+from botobot_core.models import Message
 
 class YahooFinanceClient():
     """ Gets data from Yahoo! Finance. """

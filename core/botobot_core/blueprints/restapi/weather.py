@@ -1,8 +1,8 @@
 from flask import jsonify
 from flask_restful import Resource
-from botobot_api.decorators import token_required
-from botobot_api.models import Message
-from botobot_api.blueprints.restapi.lib.seventimerclient import SevenTimerClient
+from botobot_core.decorators import token_required
+from botobot_core.models import Message
+from botobot_core.blueprints.restapi.lib.seventimerclient import SevenTimerClient
 
 class WeatherResource(Resource):
     """ Provides weather data. Powered by 7timer.info API. """
