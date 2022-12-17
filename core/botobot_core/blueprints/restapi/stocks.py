@@ -15,8 +15,8 @@ class StocksResource(Resource):
         self.args = self.parser.parse_args()
         if not self.args.get('message'):
             return self.handle_start()
-        else:
-            return self.handle_message(self.args.get('message'))
+
+        return self.handle_message(self.args.get('message'))
 
     def handle_start(self):
         """ Ask user to enter the ticker code """
@@ -27,5 +27,5 @@ class StocksResource(Resource):
         message = message.lower().strip()
         if message == 'quit':
             return jsonify({ 'messages' : [Message.get('general.bye').fulltext], 'quit': True })
-        else:
-            return jsonify({ 'messages' : [YahooFinanceClient.get_formatted_stock_info(ticker=message), Message.get('stocks.inform_another_ticker').fulltext], 'quit': False })
+
+        return jsonify({ 'messages' : [YahooFinanceClient.get_formatted_stock_info(ticker=message), Message.get('stocks.inform_another_ticker').fulltext], 'quit': False })

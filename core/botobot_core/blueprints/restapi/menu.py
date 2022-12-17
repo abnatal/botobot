@@ -33,10 +33,9 @@ class MenuResource(Resource):
             return self.handle_start()
 
         if self.args.get('message'):
-            if not self.context.current_api:
-                return self.handle_message(message=self.args.get('message'))
-            else:
+            if self.context.current_api:
                 return self.forward_message(api=self.context.current_api, message=self.args.get('message'))
+            return self.handle_message(message=self.args.get('message'))
 
         abort(404)
 
