@@ -1,4 +1,4 @@
-# 🐬 BotoBot API
+# 🐬 BotoBot Core
 The core module of BotoBot. It's a Flask RESTful application that provides:
 - An entry point (webhook) to receive messages from clients (eg. Telegram / Whatsapp);
 - Services APIs (one endpoint for each option on the menu);

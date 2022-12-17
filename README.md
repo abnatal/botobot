@@ -2,7 +2,7 @@
 BotoBot is an easy to configure menu-based chatbot for Whatsapp / Telegram.
 
 It's composed by three python applications:
-- API
+- BotoBot Core
 - Telegram Client
 - WhatsApp Client
 
@@ -21,8 +21,8 @@ You need to setup an account with a Facebook Business Solution Provider (BSP) fo
 <img src="https://abnatal.com/github/botobot_diagram.jpg"></img>
 ```
 Project
-├── api
-|   ├── botobot_api: Flask application to handle the user input and call services APIs.
+├── core
+|   ├── botobot_core: Flask application to handle the user input and call services APIs.
 |
 ├── telegram
 │   ├── botobot_telegram: Python application to interface with Telegram API.
@@ -38,8 +38,8 @@ Project
 Use the __docker-compose.yml__ provided.
 ```
 # In the application directory, build the images:
-cd api
-docker build -t botobot_api .
+cd core
+docker build -t botobot_core .
 
 cd ../telegram
 docker build -t botobot_telegram .
@@ -52,9 +52,9 @@ docker-compose up -d
 ```
 
 ### Running as standalone apps
-Please check the README.md files inside each project folder (api, telegram, whatsapp) for instructions.
+Please check the README.md files inside each project folder (core, telegram, whatsapp) for instructions.
 
-The WhatsApp and Telegram clients depend on the API project.
+The WhatsApp and Telegram clients depend on the BotoBot Core project.
 
 ## Technologies used
 - Python

@@ -1,12 +1,12 @@
 version: "3.8"
 
 services:
-    botobot_api:
-        image: botobot_api
-        container_name: botobot_api
+    botobot_core:
+        image: botobot_core
+        container_name: botobot_core
         ports:
             - "5000:5000"
-        hostname: botobot_api
+        hostname: botobot_core
         restart: always
         networks:
             - botobot-net

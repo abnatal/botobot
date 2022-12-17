@@ -1,5 +1,5 @@
 # 🐬 BotoBot WhatsApp Client
-Interface between the BotoBot API and the WhatsApp API.
+Interface between the BotoBot Core and the WhatsApp API.
 
 Check the telegram live demo at https://t.me/BotoBotDemo_bot
 
@@ -18,7 +18,7 @@ Project
 ```
 
 ## Dependencies
-This project project depends on [BotoBot API](https://github.com/abnatal/botobot/tree/main/api).
+This project project depends on [BotoBot Core](https://github.com/abnatal/botobot/tree/main/core).
 
 It was tested with Python 3.10.
 
@@ -29,13 +29,13 @@ Edit the __settings.toml__ and provide the following parameters:
 ```
 SECRET_KEY = "some_random_key"
 WEBHOOK_TOKEN = 'please_change_this_to_a_random_string'
-BOTOBOT_API_WEBHOOK = 'http://botobot_api:5000/'
+BOTOBOT_CORE_WEBHOOK = 'http://botobot_core:5000/'
 ```
 The __SECRET_KEY__ is the Flask secret key. Please provide a random string.
 
 The __WEBHOOK_TOKEN__ is a random string to be configured with your BSP (Gupshup or Positus)
 
-The __BOTOBOT_API_WEBHOOK__ is the URL of the BotoBot API. Please note that it points to the __botobot_api__ host, which is the default configuration for our docker-compose setup. If you want to run it as a standalone app, change this address (usually http://127.0.0.1:5000/ for development environments).
+The __BOTOBOT_CORE_WEBHOOK__ is the URL of the BotoBot Core Webhook. Please note that it points to the __botobot_core__ host, which is the default configuration for our docker-compose setup. If you want to run it as a standalone app, change this address (usually http://127.0.0.1:5000/ for development environments).
 
 ### Gupshup
 ```

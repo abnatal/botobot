@@ -8,7 +8,7 @@ ERROR_MESSAGE = 'Sorry, an error occurred while processing your request. Please,
 ERROR_TELEGRAM_UNAUTHORIZED = 'Authorization error! Check the "TELEGRAM_TOKEN" configuration.'
 
 class BotoBotTelegramClient:
-    """ Interface between Telegram API and Botobot API. """
+    """ Interface between Telegram API and Botobot Core API. """
     def __init__(self):
         self.config = Dynaconf(settings_files=["settings.toml"])
         self.req_headers = { 'Content-Type': 'application/json' }
@@ -17,7 +17,7 @@ class BotoBotTelegramClient:
         """ Handles the /start command on telegram (bot first use) """
         json_data = {'chat_id' : update.effective_chat.id, 'cmd' : 'start', 'client':'telegram', 'version':'1.0'}
         try:
-            req = requests.Session().post(self.config.BOTOBOT_API_WEBHOOK, json = json_data, headers = self.req_headers)
+            req = requests.Session().post(self.config.BOTOBOT_CORE_WEBHOOK, json = json_data, headers = self.req_headers)
             if req.status_code >= 300:
                 raise Exception(f'HTTP ERROR {req.status_code}! Content: {req.text}')
 
@@ -33,7 +33,7 @@ class BotoBotTelegramClient:
         message = update.message.text.strip()
         json_data = {'chat_id' : update.effective_chat.id, 'message' : message, 'client':'telegram', 'version':'1.0'}
         try:
-            req = requests.Session().post(self.config.BOTOBOT_API_WEBHOOK, json = json_data, headers = self.req_headers)
+            req = requests.Session().post(self.config.BOTOBOT_CORE_WEBHOOK, json = json_data, headers = self.req_headers)
             if req.status_code >= 300:
                 raise Exception(f'HTTP ERROR {req.status_code}! Content: {req.text}')
 

@@ -13,10 +13,10 @@ COPY --chown=www-data:www-data ./ /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Create the database.
-ENV FLASK_APP=/app/botobot_api/app.py
+ENV FLASK_APP=/app/botobot_core/app.py
 RUN flask create-db
 
 # Run.
 EXPOSE 5000
 RUN chown -R www-data:www-data /app
-CMD [ "mod_wsgi-express", "start-server", "/app/botobot_api/wsgi.py", "--user", "www-data", "--group", "www-data", "--host", "0.0.0.0", "--port", "5000", "--log-to-terminal" ]
+CMD [ "mod_wsgi-express", "start-server", "/app/botobot_core/wsgi.py", "--user", "www-data", "--group", "www-data", "--host", "0.0.0.0", "--port", "5000", "--log-to-terminal" ]

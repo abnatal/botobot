@@ -19,7 +19,7 @@ class WhatsappGupShupWebhook(Resource):
 
         # Config headers used in requests.
         self.gupshup_headers = { 'Content-Type': 'application/x-www-form-urlencoded', 'apikey': app.config.GUPSHUP_API_KEY, 'Cache-Control' : 'no-cache', 'cache-control': 'no-cache' }
-        self.botobot_api_headers = { 'Content-Type': 'application/json' }
+        self.botobot_core_headers = { 'Content-Type': 'application/json' }
 
     def post(self):
         """ Process the message received from gupshup.
@@ -60,8 +60,8 @@ class WhatsappGupShupWebhook(Resource):
         """
         json_data = {'chat_id' : sender, 'message' : message, 'client' : 'whatsapp', 'version' : '1.0'}
         try:
-            # Make a request to Botobot API.
-            req = requests.Session().post(app.config.BOTOBOT_API_WEBHOOK, json = json_data, headers = self.botobot_api_headers)
+            # Make a request to Botobot CORE.
+            req = requests.Session().post(app.config.BOTOBOT_CORE_WEBHOOK, json = json_data, headers = self.botobot_core_headers)
             if req.status_code >= 300:
                 raise Exception(f'HTTP ERROR {req.status_code}! Content: {req.text}')
 
