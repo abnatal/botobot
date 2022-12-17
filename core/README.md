@@ -11,7 +11,7 @@ New services must be implemented here, as new API resources.
 ## Project structure
 ```
 Project
-├── botobot_api
+├── botobot_core
 │   ├── blueprints: REST API resources
 |   ├── ext: Extensions (configuration, database, commands)
 |   ├── tests: Pytest tests
