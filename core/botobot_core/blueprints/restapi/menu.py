@@ -19,7 +19,8 @@ class MenuResource(Resource):
 
     @token_required
     def post(self):
-        """ Entry point: all requests pass here and get a reply or are fowarded to another APIs.
+        """ Entry point: all requests pass here and get a reply or
+            are forwarded to other endpoints.
         """
         self.args = self.parser.parse_args()
         self.context = self.get_context(self.args['chat_id'], self.args['client'])
@@ -31,7 +32,6 @@ class MenuResource(Resource):
                                                version=self.args['version'])
             return self.handle_start()
 
-        # Context exists. Check the message.
         if self.args.get('message'):
             if not self.context.current_api:
                 return self.handle_message(message=self.args.get('message'))
@@ -49,7 +49,7 @@ class MenuResource(Resource):
         return jsonify({ 'messages' : [hello.fulltext, "\n".join(options)] })
 
     def handle_message(self, message):
-        """ Chat has already started. Handles the arriving message. """
+        """ Handles arriving messages when chat has already started. """
         try:
             option = int(message.strip())
         except ValueError:
@@ -62,14 +62,14 @@ class MenuResource(Resource):
         return jsonify({ 'messages' : [Message.get('general.wrong_option').fulltext] })
 
     def redirect_context(self, option):
-        """ Redirect the context to another API.
+        """ Redirects the context to another endpoint.
             Occurs when user selects a valid option from the main menu.
         """
         self.set_current_api(Api.get_all_visible()[option - 1])
         return self.forward_message(self.context.current_api, message=None)
 
     def forward_message(self, api, message):
-        """ Forwards the message received to the current API. """
+        """ Forwards the message received to the current endpoint. """
         req = requests.Session().post(api.url, json = self.make_json_body(message), headers = self.make_headers())
 
         # Check for errors.
@@ -86,37 +86,48 @@ class MenuResource(Resource):
         return jsonify({ 'messages' : messages })
 
     def create_context(self, chat_id, client, version):
+        """ Creates a new context. """
         return ContextManager.create_context(chat_id=chat_id, client=client, version=version)
 
     def destroy_current_context(self):
+        """ Destroys the context when the chat finishes. """
         ContextManager.destroy_context(self.context)
 
     def get_context(self, chat_id, client):
+        """ Returns the current chat context. """
         return ContextManager.get_context(chat_id=chat_id, client=client)
 
     def set_current_api(self, api):
+        """ Sets the current API in the context. """
         self.context.current_api = api
         ContextManager.save_context(self.context)
 
     def make_headers(self):
-        """ TODO: include 'Authorization: JWT (...)'. """
+        """ Creates the request headers. 
+            TODO: include 'Authorization: JWT (...)'.
+        """
         return { 'Content-Type': 'application/json' }
 
     def make_json_body(self, message):
-        return {'message' : message, 'chat_id' : self.args.get('chat_id'), 'client' : self.args.get('client'), 'version' : self.args.get('version')}
+        """ Creates the message body to be sent to the endpoints (APIs). """
+        return { 'message' : message,
+                 'chat_id' : self.args.get('chat_id'),
+                 'client' : self.args.get('client'),
+                 'version' : self.args.get('version')}
 
 class ContextManager():
     @staticmethod
     def get_context(chat_id, client):
+        """ Returns the current context stored in the DB. """
         return ChatContext.get(chat_id=chat_id, client=client)
 
     @staticmethod
     def create_context(chat_id, client, version):
-        ctx = ChatContext(
-            chat_id = chat_id,
-            client = client,
-            version = version,
-            current_api = None)
+        """ Creates a new context. Used when a new conversation starts. """
+        ctx = ChatContext(chat_id = chat_id,
+                          client = client,
+                          version = version,
+                          current_api = None)
         ctx.save()
         return ctx
 
