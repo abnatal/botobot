@@ -1,4 +1,4 @@
-from botobot_api.models import Message
+from botobot_core.models import Message
 
 def test_menu_resource(client):   
     url = '/'

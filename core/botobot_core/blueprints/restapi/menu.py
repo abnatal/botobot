@@ -1,8 +1,8 @@
 import requests
 from flask import jsonify
 from flask_restful import reqparse, abort, Resource
-from botobot_api.decorators import token_required
-from botobot_api.models import ChatContext, Message, Api
+from botobot_core.decorators import token_required
+from botobot_core.models import ChatContext, Message, Api
 
 class MenuResource(Resource):
     """ The main menu resource. Gets user input and relays it to other APIs. """

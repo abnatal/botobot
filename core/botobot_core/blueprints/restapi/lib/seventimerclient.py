@@ -1,6 +1,6 @@
 from datetime import datetime
 import random, requests
-from botobot_api.models import Message
+from botobot_core.models import Message
 
 class SevenTimerClient():
     """ Client for the 7timer.info API. """

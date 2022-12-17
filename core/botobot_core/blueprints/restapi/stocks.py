@@ -1,8 +1,8 @@
 from flask import jsonify
 from flask_restful import Resource, reqparse
-from botobot_api.decorators import token_required
-from botobot_api.models import Message
-from botobot_api.blueprints.restapi.lib.yfclient import YahooFinanceClient
+from botobot_core.decorators import token_required
+from botobot_core.models import Message
+from botobot_core.blueprints.restapi.lib.yfclient import YahooFinanceClient
 
 class StocksResource(Resource):
     """ Provides prices of stocks. Powered by Yahoo! Finance. """

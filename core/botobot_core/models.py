@@ -1,5 +1,4 @@
-import datetime
-from botobot_api.ext.database import db
+from botobot_core.ext.database import db
 
 class Api(db.Model):
     id = db.Column(db.Integer, primary_key=True)
