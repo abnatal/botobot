@@ -39,6 +39,7 @@ Use the __docker-compose.yml__ provided.
 ```
 # First, configure each application by editing its "settings.toml" file..
 # Instructions about configuration are presented at the README.md files inside each project folder.
+
 cd core
 cp settings.toml.sample settings.toml
 vi settings.toml
@@ -55,6 +56,7 @@ vi settings.toml
 cd ..
 docker-compose up -d --build
 ```
+Tested with Docker 20.10.21 and Docker Compose v2.14.1.
 
 ### Running as standalone apps
 Please check the README.md files inside each project folder (core, telegram, whatsapp) for instructions.
