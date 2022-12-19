@@ -37,18 +37,23 @@ Project
 ### Docker
 Use the __docker-compose.yml__ provided.
 ```
-# In the application directory, build the images:
+# First, configure each application by editing its "settings.toml" file..
+# Instructions about configuration are presented at the README.md files inside each project folder.
 cd core
-docker build -t botobot_core .
+cp settings.toml.sample settings.toml
+vi settings.toml
 
 cd ../telegram
-docker build -t botobot_telegram .
+cp settings.toml.sample settings.toml
+vi settings.toml
 
 cd ../whatsapp
-docker build -t botobot_whatsapp .
+cp settings.toml.sample settings.toml
+vi settings.toml
 
 # Run with docker-compose:
-docker-compose up -d
+cd ..
+docker-compose up -d --build
 ```
 
 ### Running as standalone apps
