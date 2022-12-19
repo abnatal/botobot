@@ -7,4 +7,4 @@ echo "Creating database..."
 flask create-db
 
 echo "Starting server...."
-gunicorn botobot_core.wsgi:application --bind 0.0.0.0:5000
+gunicorn botobot_core.wsgi:application --timeout 240 --workers 3 --bind 0.0.0.0:5000
